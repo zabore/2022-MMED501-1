@@ -4,7 +4,7 @@ class: inverse, center, middle
 ---
 # Example trial dataset
 
-.large[
+.medium[
 The most common data format we work with are data from Excel. 
 
 The example trial dataset is available in the {gtsummary} package in R.

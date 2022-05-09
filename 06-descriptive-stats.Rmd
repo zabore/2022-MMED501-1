@@ -96,26 +96,24 @@ The summary statistics can be customized in many ways. See [the package website]
 ---
 # Overall summary tables
 
-.large[
-We can make overall tables using the `tbl_summary()` function. First we will limit the variables in the data to a few of interest, and create a new subset dataset called "trial2":
+.medium[
+We can make overall tables using the `tbl_summary()` function. We subset the data for the variables of interest within the function:
 ]
   
 ```{r}
-trial2 <- trial[, c("marker", "grade", "trt")]
-
-tbl_summary(trial2)
+tbl_summary(data = trial[, c("marker", "grade")])
 ```
 
 ---
 # Cross-tabulated summary tables
 
-.large[
+.medium[
 We can also easily create tables of summary statistics according to another variable by specifying the `by` argument to the `tbl_summary()` function:
 ]
 
 ```{r}
 tbl_summary(
-  trial2, 
+  data = trial[, c("marker", "grade", "trt")], 
   by = "trt"
 )
 ```
