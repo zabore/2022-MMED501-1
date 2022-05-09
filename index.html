@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>MMED501: Biostatistics and Epidemiology</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emily C Zabor" />
+    <meta name="date" content="2022-05-12" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: inverse, center, title-slide, middle
+
+# MMED501: Biostatistics and Epidemiology
+
+## Introduction to R and RStudio
+
+&lt;br&gt;
+
+### Emily C. Zabor
+
+#### May 12, 2022
+
+&lt;br&gt;
+
+&lt;p align="center"&gt;&lt;img src="img/CC_hires_r.png" width=30%&gt;&lt;/p&gt;
+
+
+---
+# About me
+
+.pull-left[
+&lt;p align="left"&gt;&lt;img src="img/UMN.jpg" width=25%&gt;&lt;/p&gt;
+
+&lt;p align="left"&gt;&lt;img src="img/CU.jpg" width=25%&gt;&lt;/p&gt;
+
+&lt;p align="left"&gt;&lt;img src="img/msk-black-logo.png" width=50%&gt;&lt;/p&gt;
+
+&lt;p align="left"&gt;&lt;img src="img/Taussig.jpg" width=40%&gt;&lt;/p&gt;
+]
+
+.pull-right[
+.large[
+MS in Biostatistics from the University of Minnesota
+
+DrPH in Biostatistics from Columbia University
+
+9 years as a Research Biostatistician in the Department of Epidemiology &amp; Biostatistics at Memorial Sloand Kettering Cancer Center
+
+Joined the Department of Quantitative Health Sciences &amp; Taussig Cancer Institute as Assistant Staff in 2019
+]
+]
+
+
+---
+# About you
+
+.pull-left[
+.xxlarge[
+- Name
+- Undergrad/Grad school degrees
+- Have you used R?
+- How do you envision using R in the future
+]
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;p align="center"&gt;&lt;img src="img/hand-wave.png" width=25%&gt;&lt;/p&gt;
+]
+
+---
+
+class: inverse, center, middle
+# Introduction to R
+
+---
+# Hello, R
+
+&lt;p align="left"&gt;&lt;img src="img/Rlogo.png" width=15%&gt;&lt;/p&gt;
+
+.large[
+R is a free, open-source software environment for statistical computing and graphics maintained by an international team of developers.
+
+Because R is free, many of the functions you may wish to use will be contributed by other users as packages and available through repositories such as CRAN, GitHub, or Bioconductor, among others. 
+
+It is your responsibility to vet the quality and accuracy of any user-contributed packages.
+
+The functions available with the initial installation of R, known as base R, can be considered trustworthy.
+]
+
+---
+# Installing R
+
+(Skip to [Open R and take a look](#open-r) if everyone already has R installed)
+
+.large[
+1. Go to the website for [The Comprehensive R Archive Network](https://cran.r-project.org/). 
+2. The top of the web page provides three links for downloading R. Follow the link that describes your operating system: Windows, Mac, or Linux.
+
+We will focus on installation for Windows and Mac. 
+
+If you use any of the Linux servers, like the HPC, available at Cleveland Clinic, R should already be installed or you can work with the appropriate IT department to install R or any needed packages. ]
+
+---
+# Installing R on Windows
+
+.large[
+To install R on Windows:
+1. Click the “Download R for Windows” link.
+2. Click the “base” link.
+3. Click the first link at the top of the new page. This link should say something like “Download R 4.2.0 for Windows,” except the "4.2.0" will be replaced by the most current version of R. The link downloads an installer program, which installs the most up-to-date version of R for Windows. 
+4. Run this program and step through the installation wizard that appears. The wizard will install R into your program files folders and place a shortcut in your Start menu. The defaults should be acceptable for most.
+]
+
+
+---
+# Installing R on Mac
+
+.large[
+To install R on a Mac:
+1. Click the “Download R for (Mac) OS X” link. 
+2. Click on the "R-4.2.0.pkg" package link. The "4.2.0" will be replaced by the most current version of R. An installer will download to guide you through the installation process.
+3. Run this program, which lets you customize your installation, but the defaults will be suitable for most users.
+]
+
+---
+name: open-r
+# Open R and take a look
+
+.large[
+The R Graphical User Interface (Gui) will contain a window labeled R Console. 
+]
+
+&lt;p align="center"&gt;&lt;img src="img/r-gui.png" width=50%&gt;&lt;/p&gt;
+
+---
+# Interactive R demo
+
+
+```r
+x &lt;- c(1, 2, 3, 4)
+mean(x)
+hist(rnorm(100))
+```
+
+.large[
+You can type code directly into the console and get results.
+
+A separate window pops up for graphics.
+
+***Note: you can save the R session but you cannot save the raw source code.*** 
+]
+
+---
+# Interactive R demo results
+
+&lt;p align="center"&gt;&lt;img src="img/r-demo-results.png" width=75%&gt;&lt;/p&gt;
+
+---
+
+class: inverse, center, middle
+# Introduction to RStudio
+
+---
+# Hello, RStudio
+
+&lt;p align="left"&gt;&lt;img src="img/RStudio-Logo-Flat.png" width=25%&gt;&lt;/p&gt;
+
+.large[
+RStudio is an Integrated Development Environment (IDE).
+
+It runs R and allows users to develop and edit programs and offers higher quality graphics and a more user-friendly interface.
+
+***Note: RStudio is not a standalone program, you must have a separate installation of R***
+]
+
+---
+# Installing RStudio
+
+(Skip to [Open RStudio and take a look](#open-rstudio) if everyone already has RStudio installed)
+
+.large[
+1. Go to the website for [RStudio](https://www.rstudio.com/products/rstudio/)
+2. Select "RStudio Desktop"
+3. Click the button for "Download RStudio Desktop"
+4. Select the Free version to download. 
+5. An installer will download and provide simple instructions to follow.
+]
+
+---
+name: open-rstudio
+# Open RStudio and take a look
+
+.large[When you first open RStudio you will see a number of panes:]
+
+&lt;p align="center"&gt;&lt;img src="img/default-rstudio.jpg" width=75%&gt;&lt;/p&gt;
+
+
+---
+# Using the text editor in RStudio
+
+.large[
+Always use a text editor to type code so that it can be saved for reproducibility purposes.
+
+How to open a text editor window:
+
+1. Go to File &gt; New File &gt; R script
+
+2. Go to File &gt; Save and save this somewhere convenient for you with your other class materials with the filename "mmed501-r-session1.R"
+]
+
+---
+# Interactive RStudio demo
+
+
+```r
+x &lt;- c(1, 2, 3, 4)
+mean(x)
+hist(rnorm(100))
+```
+
+.large[
+To send this to the console to be executed, you can do one of the following:
+
+1. Place your cursor next to the line you want to run and hit Ctrl+Enter on your keyboard
+2. Place your cursor next to the line you want to run and hit the "Run" button
+3. Highlight all three lines of code and use one of the previous options
+]
+
+
+---
+# Interactive RStudio demo results
+
+&lt;p align="center"&gt;&lt;img src="img/rstudio-demo-results.png" width=65%&gt;&lt;/p&gt;
+
+
+---
+# View the output
+
+.large[
+After we have run all three lines of code, we see the results of our mean computation in the Console pane. 
+
+And we see the resulting histogram in the Plots pane.
+
+But how would we get these results out of RStudio to turn in for homework or share with collaborators? 
+
+This is where **R Markdown** comes in handy.
+]
+
+
+
+
+
+---
+
+class: inverse, center, middle
+# Introduction to R Markdown 
+
+
+---
+# Hello, R Markdown
+
+&lt;p align="left"&gt;&lt;img src="img/rmarkdown.png" width=15%&gt;&lt;/p&gt;
+
+.large[
+One of the benefits of RStudio is seamless integration of R Markdown.
+
+R Markdown is a file format that allows you to integrate text using **markdown** syntax with dynamic **code chunks**.
+]
+
+---
+# Create a new R Markdown file
+
+.large[
+1. Go to File &gt; New File &gt; R Markdown...
+2. You will see options to create a Document, Presentation, Shiny, or From Template. The most common choice is to create a Document. 
+3. Type "MMED501 R session 1" in the Title box and type your name in the Author box. 
+4. Select the radio button for HTML under "Default Output Format" 
+5. Click OK.
+6. A new file will open with .Rmd as the file extension. Go to File &gt; Save and save this in the same location as the previous .R file we saved, with the filename "mmed501-rmd-session1.Rmd" (**Note that the file needs to be saved before you can execute it**)
+]
+ 
+ 
+---
+# Anatomy of an R Markdown file
+
+&lt;p align="center"&gt;&lt;img src="img/default-rmarkdown-annotated.png" width=80%&gt;&lt;/p&gt;
+
+
+---
+# Interactive R Markdown demo - code
+
+.large[
+Let's delete out the default text, leaving the top R chunk. 
+
+This R chunk is saying that we want our code to print to file in addition to the results.
+
+To suppress code and only show the results of code, you can change this from `knitr::opts_chunk$set(echo = TRUE)` to `knitr::opts_chunk$set(echo = FALSE)`.
+
+Now return two lines and go to Insert &gt; R to insert a new R code chunk, and add the following code:
+]
+
+
+```r
+x &lt;- c(1, 2, 3, 4)
+mean(x)
+hist(rnorm(100))
+```
+
+
+---
+# Interactive R Markdown demo - text
+
+.large[
+Now return two lines and type some text that you want to print to file, like "Check out my cool results!"
+
+You can also execute R code inline instead of in an R chunk by using `` `r expression` ``, where expression is replaced by the code you want to evaluate.
+
+Return another two lines and type "The mean of x is `` `r mean(x)` ``."
+]
+
+---
+# Interactive R Markdown demo - knit
+
+.large[Now, to generate the output, we can simply hit "Knit". ]
+
+&lt;p align="left"&gt;&lt;img src="img/rmarkdown-demo-knit.png" width=75%&gt;&lt;/p&gt;
+
+.large[
+A new window will pop up with the html output of your program. You will also have an HTML (or whatever Document format you selected) file saved in the same location and with the same name as your R Markdown file. 
+
+In this way you can create reproducible reports for all of your projects.
+
+Read more here: [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/)
+]
+
+---
+# Interactive R Markdown demo results
+
+&lt;p align="center"&gt;&lt;img src="img/rmarkdown-demo-results.png" width=65%&gt;&lt;/p&gt;
+
+---
+
+class: inverse, center, middle
+# Loading data
+
+---
+# Example trial dataset
+
+.large[
+The most common data format we work with are data from Excel. 
+
+The example trial dataset is available in the {gtsummary} package in R.
+
+1. Install and load the "gtsummary" package
+2. Preview the `trial` data by simply typing the name of the dataset:
+]
+
+
+
+```r
+install.packages("gtsummary")
+```
+
+
+```r
+library(gtsummary)
+trial
+```
+
+```
+## # A tibble: 200 × 8
+##    trt      age marker stage grade response death ttdeath
+##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;    &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
+##  1 Drug A    23  0.16  T1    II           0     0    24  
+##  2 Drug B     9  1.11  T2    I            1     0    24  
+##  3 Drug A    31  0.277 T1    II           0     0    24  
+##  4 Drug A    NA  2.07  T3    III          1     1    17.6
+##  5 Drug A    51  2.77  T4    III          1     1    16.4
+##  6 Drug B    39  0.613 T4    I            0     1    15.6
+##  7 Drug A    37  0.354 T1    II           0     0    24  
+##  8 Drug A    32  1.74  T1    I            0     1    18.4
+##  9 Drug A    31  0.144 T1    II           0     0    24  
+## 10 Drug B    34  0.205 T3    I            0     1    10.5
+## # … with 190 more rows
+```
+
+---
+# How to see help files
+
+.large[
+Placing a question mark in front of the name of any R function will take you to the help page for that function.
+
+Explore the contents of `trial` by running:
+]
+
+
+```r
+?trial
+```
+
+---
+# trial data help file
+
+&lt;p align="center"&gt;&lt;img src="img/trial-help.png" width=45%&gt;&lt;/p&gt;
+
+
+
+
+I have saved this data file out to Excel so that we can practice loading it in R.
+
+---
+# Download file "trial-Excel.xlsx"
+
+.large[
+Go to the [course website](https://mylearning.ccf.org/course/view.php?id=13460) to download the file named "trial-Excel.xlsx". 
+
+Save it to the same location where you previously saved your "mmed501-r-session1.R" and "mmed501-rmd-session1.Rmd" files.
+
+Use your R file "mmed501-r-session1.R" to practice the following code to read in files.
+]
+
+---
+# Reading in Excel files with {readxl}
+
+.large[First install the {readxl} package from CRAN using `install.packages()`:]
+
+
+```r
+install.packages("readxl")
+```
+
+.large[Then load the newly installed package with a call to `library()`:]
+
+
+```r
+library(readxl)
+```
+
+.large[And finally use the `read_excel()` function with the appropriate file path to read in the data and create an object called "mydf":]
+
+
+```r
+mydf &lt;- read_excel("H:/MMED/MMED501-2022/MMED501-R-Session1/trial-Excel.xlsx")
+```
+
+.large[***Note that R treats the \\ as a special character so you either need to use / or \\\ in file paths***]
+
+---
+# Converting to .csv format before reading in
+
+.large[
+Save the file as .csv and read in with base R
+
+Advantages: removes some of the possible formatting pitfalls associated with Excel files, and you don't need any special packages to read this format.
+
+1. Open the Excel file.
+2. Go to File &gt; Save As and select "CSV (Comma delimited)" from the "Save as type" drop down.
+3. Use the `read.csv()` function with the appropriate file path to read in the data and create an object called "mydf2"
+]
+
+
+```r
+mydf2 &lt;- read.csv("H:/MMED/MMED501-2022/MMED501-R-Session1/trial-csv.csv")
+```
+
+---
+
+class: inverse, center, middle
+# Plotting
+
+---
+# The {ggplot2} package for plotting
+
+&lt;p align="left"&gt;&lt;img src="img/ggplot2.png" width=15%&gt;&lt;/p&gt;
+
+.large[
+
+Plotting features are available in base R, but a very popular package for plotting in R is the {ggplot2} package, which will be the focus in this course. 
+
+First install and load the {ggplot2} package:
+]
+  
+
+```r
+install.packages("ggplot2")
+```
+
+
+```r
+library(ggplot2)
+```
+
+
+---
+# Setting up the plot basics
+
+.large[
+It is common to want to describe a continuous variable using a histogram, particularly to examine whether the distribution appears approximately normal.
+
+We examine the variable "marker" in the `gtsummary::trial` dataset.
+
+Build plots using {ggplot2} by first specifying the dataset and the basic aesthetics in a call to the `ggplot()` function.
+
+So to create a basic histogram we start by specifying the dataset name "trial" and that we want to see the variable "marker" on the x-axis, this just creates the structure of the plot:
+]
+
+
+```r
+ggplot(data = trial, aes(x = marker))
+```
+
+---
+# Adding a histogram layer
+
+.large[
+Add layers to the plot with "+" signs. 
+
+Create the histogram by adding a layer with `geom_histogram()`:]
+
+
+```r
+ggplot(data = trial, aes(x = marker)) + 
+  geom_histogram()
+```
+
+---
+# What do those warning messages mean?
+
+```
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Warning message:
+Removed 10 rows containing non-finite values (stat_bin). 
+```
+
+.large[
+The first message, along with visual inspection, tells us the default number of bins is too many for this variable.
+
+The other warning informs us that there are missing values in the variable "marker", which we will ignore for now, but in general this is an important warning.
+
+Specify a smaller number of bins for the histogram using the `bins` argument to `geom_histogram()`:
+]
+  
+
+```r
+ggplot(data = trial, aes(x = marker)) + 
+  geom_histogram(bins = 10)
+```
+
+
+---
+# Histogram interpretation
+
+&lt;p align="center"&gt;&lt;img src="img/ggplot-histogram.jpeg" width=45%&gt;&lt;/p&gt;
+
+We find that the variable "marker" from the `trial` dataset has a positively skewed distribution.
+
+---
+# Histograms according to a categorical variable
+
+.large[
+What if it was of interest to see the distribution of marker according to disease grade?
+  
+Add a layer to our `ggplot()` using `facet_grid()` to get panels for each level of the disease grade variable "grade". 
+
+Note that by default the y-axis and x-axis limits are fixed across all plots, so we can directly compare the distributions. It is possible to control this with the `scales` argument to `facet_grid()`, see `?facet_grid` for details. 
+]
+
+
+```r
+ggplot(data = trial, aes(x = marker)) + 
+  geom_histogram(bins = 10) +
+  facet_grid(cols = vars(grade))
+```
+
+
+---
+# Histograms according to a categorical variable
+
+&lt;p align="center"&gt;&lt;img src="img/ggplot-histogram-grade.jpeg" width=90%&gt;&lt;/p&gt;
+
+---
+# Boxplots
+
+.large[
+Boxplots are another common way of examining continuous variables. 
+
+Now the continuous variable is on the y-axis instead of the x-axis as in the histogram case:
+]
+
+
+```r
+ggplot(data = trial, aes(y = marker))
+```
+
+.large[And the boxplot is created by adding a layer with `geom_boxplot()`:]
+
+
+```r
+ggplot(data = trial, aes(y = marker)) + 
+  geom_boxplot()
+```
+
+---
+# Boxplot interpretation
+
+.pull-left[
+&lt;p align="center"&gt;&lt;img src="img/ggplot-boxplot.jpeg" width=90%&gt;&lt;/p&gt;
+]
+
+.pull-right[
+.large[
+The top and bottom of the box are the 25th and 75th quantiles.
+
+The center line is the median.
+
+The whiskers extend to 1.5xIQR.
+]
+]
+
+---
+# Boxplots according to a categorical variable
+
+.large[
+Now return our interest to the distribution of marker according to disease grade.
+
+We see the syntax is identical to the histogram case:
+]
+
+
+```r
+ggplot(data = trial, aes(y = marker)) + 
+  geom_boxplot() + 
+  facet_grid(cols = vars(grade))
+```
+
+---
+# Histograms according to a categorical variable
+
+&lt;p align="center"&gt;&lt;img src="img/ggplot-boxplot-grade.jpeg" width=90%&gt;&lt;/p&gt;
+
+
+---
+# Scatterplots
+
+.large[
+Scatterplots display the joint distribution of two continuous variables.
+
+For example, what if we wanted to see a plot of "marker" by "age". 
+
+Put age on the x-axis and marker on the y-axis 
+]
+
+
+```r
+ggplot(data = trial, aes(x = age, y = marker))
+```
+
+.large[Then the scatterplot is created by adding a layer with `geom_point()`:]
+
+
+```r
+ggplot(data = trial, aes(x = age, y = marker)) + 
+  geom_point()
+```
+
+---
+# Scatterplot interpretation
+
+&lt;p align="center"&gt;&lt;img src="img/ggplot-scatterplot.jpeg" width=55%&gt;&lt;/p&gt;
+
+.large[Look for increasing or decreasing trends, or clusters of points.]
+
+
+---
+# Exporting plots
+
+.large[
+We will often want to save plots to an external file to insert into a later document. 
+
+There are several options:
+
+1. Use the interactive plot window to export your created plot.
+
+2. Use code to save your plot to an external location. There is a function called `ggsave()` specifically for saving results of `ggplot()`. By default it will save the last created plot, or you can save your plot to an object and specify it directly using the `plot` argument to `ggsave()`. You will specify the file format by including an extension, here ".png" on your filename.
+]
+
+---
+# Saving from the interactive plot window
+
+.large[Create your plot:]
+
+```r
+ggplot(data = trial, aes(x = marker)) + 
+  geom_histogram(bins = 10)
+```
+
+
+---
+# Interactive saving options
+
+.large[
+Click on "Export" then select the option...
+1. "Copy to Clipboard". This will open a pop-up window where you could rescale the plot, if desired, and then click "Copy Plot" to copy the plot to your clipboard so that you can paste it into any external document.
+2. "Save as Image...". Here you can change the directory location where you want to save the plot to the same location where you have your code and data files for this class saved so far. You can select from a variety of file formats. Save it as "my-histogram" in PNG format. You can then insert this file into other documents as needed.
+3. "Save as PDF..." and follow the same instructions as in B to save a .pdf version of your image.
+    ]
+    
+---
+# Save to file with the ggsave() function
+
+
+```r
+p &lt;- ggplot(data = trial, aes(y = marker)) + 
+  geom_boxplot() + 
+  facet_grid(cols = vars(grade))
+    
+ggsave(filename = "my-boxplot.png", 
+       plot = p)
+```
+
+.large[
+Can specify the whole filepath explicitly.
+
+***Adjust the width and height using the `width` and/or `height` arguments to the `ggsave()` function***
+]
+
+
+---
+
+class: inverse, center, middle
+# Descriptive statistics
+
+---
+# Summarizing continuous variables
+
+.large[
+Functions to summarize continuous variables:
+  
+  - `summary()`: calculates the minimum, 1st quartile, median, mean, 3rd quartile, and maximum as well as the number of missing values. 
+- `mean()`: calculates the mean
+- `sd()`: calculates the standard deviation
+- `median()`: calculates the median
+- `min()`: calculates the minimum
+- `max()`: calculates the maximum
+- `quantile()`: calculates specified quantiles
+
+Note that in the presence of missing data, most of these functions will require the use of the `na.rm = TRUE` argument, which simply ignores any missing values in the calculation. If not specified and missing values are present, the function will return NA.
+]
+
+---
+# Some examples using the "marker" variable
+
+
+```r
+summary(trial$marker)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0030  0.2150  0.6385  0.9160  1.3930  3.8740      10
+```
+
+```r
+mean(trial$marker, na.rm = TRUE)
+```
+
+```
+## [1] 0.9159895
+```
+
+```r
+quantile(trial$marker, probs = c(0.25, 0.75), na.rm = TRUE)
+```
+
+```
+##   25%   75% 
+## 0.215 1.393
+```
+
+Notes:
+- Specified the argument `probs = c(0.25, 0.75)` to the `quantile()` function to specify that we wanted the 1st (i.e. 25%) and 3rd (i.e. 75%) quantiles.
+- Must use the syntax `dataset$variable` 
+
+
+---
+# Continuous summary by a categorical variable 
+
+.large[We can get summaries of continuous variables by a categorical variable using the function `tapply()`.
+
+For example, summarize "marker" by levels of "grade":]
+  
+
+```r
+tapply(trial$marker, trial$grade, summary)
+```
+
+```
+## $I
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##   0.003   0.260   1.012   1.067   1.612   3.874       2 
+## 
+## $II
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0050  0.1425  0.3700  0.6805  1.1060  3.2490       5 
+## 
+## $III
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  0.0220  0.2900  0.6150  0.9958  1.6800  3.6420       3
+```
+
+---
+# Summarizing categorical variables
+
+.large[
+Functions to summarize categorical variables:
+  
+- `table()`: calculates the number in each group 
+- `prop.table()`: calculates the proportion in each group
+
+Note that the argument `useNA = "ifany"` needs to be specified in `table()` in order to see the number of any missing values. If not specified, missing values will be ignored.
+]
+
+
+```r
+table(trial$response, useNA = "ifany")
+```
+
+```
+## 
+##    0    1 &lt;NA&gt; 
+##  132   61    7
+```
+
+```r
+prop.table(table(trial$response))
+```
+
+```
+## 
+##         0         1 
+## 0.6839378 0.3160622
+```
+
+
+---
+# Cross-tabulations
+
+.large[
+Generate cross-tabulations of two categorical variables by passing a second variable to `table()`. 
+
+For example if we wanted a table of "response" according to "grade":
+]
+
+
+```r
+table(trial$grade, trial$response, useNA = "ifany")
+```
+
+```
+##      
+##        0  1 &lt;NA&gt;
+##   I   46 21    1
+##   II  44 19    5
+##   III 42 21    1
+```
+
+```r
+prop.table(table(trial$grade, trial$response))
+```
+
+```
+##      
+##               0         1
+##   I   0.2383420 0.1088083
+##   II  0.2279793 0.0984456
+##   III 0.2176166 0.1088083
+```
+
+---
+# Summarizing many variables
+
+.large[
+What we often need to do in our area of work is what we call a "Table 1" where we describe many characteristics of a study population either overall, or according to another variable. 
+There are many packages to do this in R; I will introduce you to the {gtsummary} package.
+
+We installed and loaded this package earlier in order to access the "trial" dataset to use as an example, but as a reminder:
+]
+
+
+```r
+install.packages("gtsummary")
+library(gtsummary)
+```
+
+The summary statistics can be customized in many ways. See [the package website](https://www.danieldsjoberg.com/gtsummary/index.html) for more details and many tutorials.
+
+---
+# Overall summary tables
+
+.large[
+We can make overall tables using the `tbl_summary()` function. 
+
+First we will limit the variables in the data to a few of interest, and create a new subset dataset called "trial2":
+]
+  
+
+```r
+trial2 &lt;- trial[, c("marker", "grade", "trt")]
+
+tbl_summary(trial2)
+```
+
+<div id="ygkxprrxih" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ygkxprrxih .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ygkxprrxih .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ygkxprrxih .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ygkxprrxih .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ygkxprrxih .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ygkxprrxih .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ygkxprrxih .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ygkxprrxih .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ygkxprrxih .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ygkxprrxih .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ygkxprrxih .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ygkxprrxih .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ygkxprrxih .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygkxprrxih .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ygkxprrxih .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ygkxprrxih .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygkxprrxih .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ygkxprrxih .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygkxprrxih .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ygkxprrxih .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygkxprrxih .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ygkxprrxih .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ygkxprrxih .gt_left {
+  text-align: left;
+}
+
+#ygkxprrxih .gt_center {
+  text-align: center;
+}
+
+#ygkxprrxih .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ygkxprrxih .gt_font_normal {
+  font-weight: normal;
+}
+
+#ygkxprrxih .gt_font_bold {
+  font-weight: bold;
+}
+
+#ygkxprrxih .gt_font_italic {
+  font-style: italic;
+}
+
+#ygkxprrxih .gt_super {
+  font-size: 65%;
+}
+
+#ygkxprrxih .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ygkxprrxih .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ygkxprrxih .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ygkxprrxih .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ygkxprrxih .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ygkxprrxih .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>N = 200</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Marker Level (ng/mL)</td>
+<td class="gt_row gt_center">0.64 (0.22, 1.39)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Unknown</td>
+<td class="gt_row gt_center">10</td></tr>
+    <tr><td class="gt_row gt_left">Grade</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">I</td>
+<td class="gt_row gt_center">68 (34%)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">II</td>
+<td class="gt_row gt_center">68 (34%)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">III</td>
+<td class="gt_row gt_center">64 (32%)</td></tr>
+    <tr><td class="gt_row gt_left">Chemotherapy Treatment</td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Drug A</td>
+<td class="gt_row gt_center">98 (49%)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Drug B</td>
+<td class="gt_row gt_center">102 (51%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><sup class="gt_footnote_marks">1</sup> Median (IQR); n (%)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+---
+# Cross-tabulated summary tables
+
+.large[
+We can also easily create tables of summary statistics according to another variable by specifying the `by` argument to the `tbl_summary()` function:
+]
+
+
+```r
+tbl_summary(
+  trial2, 
+  by = "trt"
+)
+```
+
+<div id="oaopcqsbfr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#oaopcqsbfr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#oaopcqsbfr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#oaopcqsbfr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#oaopcqsbfr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#oaopcqsbfr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#oaopcqsbfr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#oaopcqsbfr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#oaopcqsbfr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#oaopcqsbfr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#oaopcqsbfr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#oaopcqsbfr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#oaopcqsbfr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#oaopcqsbfr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oaopcqsbfr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#oaopcqsbfr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#oaopcqsbfr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oaopcqsbfr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#oaopcqsbfr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oaopcqsbfr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#oaopcqsbfr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oaopcqsbfr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#oaopcqsbfr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oaopcqsbfr .gt_left {
+  text-align: left;
+}
+
+#oaopcqsbfr .gt_center {
+  text-align: center;
+}
+
+#oaopcqsbfr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#oaopcqsbfr .gt_font_normal {
+  font-weight: normal;
+}
+
+#oaopcqsbfr .gt_font_bold {
+  font-weight: bold;
+}
+
+#oaopcqsbfr .gt_font_italic {
+  font-style: italic;
+}
+
+#oaopcqsbfr .gt_super {
+  font-size: 65%;
+}
+
+#oaopcqsbfr .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#oaopcqsbfr .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#oaopcqsbfr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#oaopcqsbfr .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#oaopcqsbfr .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#oaopcqsbfr .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Drug A</strong>, N = 98<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1"><strong>Drug B</strong>, N = 102<sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Marker Level (ng/mL)</td>
+<td class="gt_row gt_center">0.84 (0.24, 1.57)</td>
+<td class="gt_row gt_center">0.52 (0.19, 1.20)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">Unknown</td>
+<td class="gt_row gt_center">6</td>
+<td class="gt_row gt_center">4</td></tr>
+    <tr><td class="gt_row gt_left">Grade</td>
+<td class="gt_row gt_center"></td>
+<td class="gt_row gt_center"></td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">I</td>
+<td class="gt_row gt_center">35 (36%)</td>
+<td class="gt_row gt_center">33 (32%)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">II</td>
+<td class="gt_row gt_center">32 (33%)</td>
+<td class="gt_row gt_center">36 (35%)</td></tr>
+    <tr><td class="gt_row gt_left" style="text-align: left; text-indent: 10px;">III</td>
+<td class="gt_row gt_center">31 (32%)</td>
+<td class="gt_row gt_center">33 (32%)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"><sup class="gt_footnote_marks">1</sup> Median (IQR); n (%)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+.large[
+***Note that the functions from the {gtsummary} package are particularly useful when used in conjunction with R Markdown, since they are meant to produce publication-ready papers.***
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

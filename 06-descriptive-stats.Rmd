@@ -1,0 +1,125 @@
+class: inverse, center, middle
+# Descriptive statistics
+
+---
+# Summarizing continuous variables
+
+.large[
+Functions to summarize continuous variables:
+  
+  - `summary()`: calculates the minimum, 1st quartile, median, mean, 3rd quartile, and maximum as well as the number of missing values. 
+- `mean()`: calculates the mean
+- `sd()`: calculates the standard deviation
+- `median()`: calculates the median
+- `min()`: calculates the minimum
+- `max()`: calculates the maximum
+- `quantile()`: calculates specified quantiles
+
+Note that in the presence of missing data, most of these functions will require the use of the `na.rm = TRUE` argument, which simply ignores any missing values in the calculation. If not specified and missing values are present, the function will return NA.
+]
+
+---
+# Some examples using the "marker" variable
+
+```{r}
+summary(trial$marker)
+mean(trial$marker, na.rm = TRUE)
+quantile(trial$marker, probs = c(0.25, 0.75), na.rm = TRUE)
+```
+
+Notes:
+- Specified the argument `probs = c(0.25, 0.75)` to the `quantile()` function to specify that we wanted the 1st (i.e. 25%) and 3rd (i.e. 75%) quantiles.
+- Must use the syntax `dataset$variable` 
+
+
+---
+# Continuous summary by a categorical variable 
+
+.large[We can get summaries of continuous variables by a categorical variable using the function `tapply()`.
+
+For example, summarize "marker" by levels of "grade":]
+  
+```{r}
+tapply(trial$marker, trial$grade, summary)
+```
+
+---
+# Summarizing categorical variables
+
+.large[
+Functions to summarize categorical variables:
+  
+- `table()`: calculates the number in each group 
+- `prop.table()`: calculates the proportion in each group
+
+Note that the argument `useNA = "ifany"` needs to be specified in `table()` in order to see the number of any missing values. If not specified, missing values will be ignored.
+]
+
+---
+# Example output using the "response" variable
+
+```{r}
+table(trial$response, useNA = "ifany")
+prop.table(table(trial$response))
+```
+
+
+---
+# Cross-tabulations
+
+.large[
+Generate cross-tabulations of two categorical variables by passing a second variable to `table()`. For example if we wanted a table of "response" according to "grade":
+]
+
+```{r}
+table(trial$grade, trial$response, useNA = "ifany")
+prop.table(table(trial$grade, trial$response))
+```
+
+---
+# Summarizing many variables
+
+.large[
+What we often need to do in our area of work is what we call a "Table 1" where we describe many characteristics of a study population either overall, or according to another variable. 
+There are many packages to do this in R; I will introduce you to the {gtsummary} package.
+
+We installed and loaded this package earlier in order to access the "trial" dataset to use as an example, but as a reminder:
+]
+
+```{r eval = FALSE}
+install.packages("gtsummary")
+library(gtsummary)
+```
+
+The summary statistics can be customized in many ways. See [the package website](https://www.danieldsjoberg.com/gtsummary/index.html) for more details and many tutorials.
+
+---
+# Overall summary tables
+
+.large[
+We can make overall tables using the `tbl_summary()` function. First we will limit the variables in the data to a few of interest, and create a new subset dataset called "trial2":
+]
+  
+```{r}
+trial2 <- trial[, c("marker", "grade", "trt")]
+
+tbl_summary(trial2)
+```
+
+---
+# Cross-tabulated summary tables
+
+.large[
+We can also easily create tables of summary statistics according to another variable by specifying the `by` argument to the `tbl_summary()` function:
+]
+
+```{r}
+tbl_summary(
+  trial2, 
+  by = "trt"
+)
+```
+
+.large[
+***Note that the functions from the {gtsummary} package are particularly useful when used in conjunction with R Markdown, since they are meant to produce publication-ready papers.***
+]
