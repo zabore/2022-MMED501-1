@@ -122,5 +122,14 @@ Joined the Department of Quantitative Health Sciences & Taussig Cancer Institute
 ```{r child='06-descriptive-stats.Rmd'}
 ```
 
+---
+# See you May 26th for the next R session
+
+.xxlarge[
+These slides are available at:
+
+[https://www.emilyzabor.com/2022-MMED501-1](https://www.emilyzabor.com/2022-MMED501-1)
+]
+
 
 
